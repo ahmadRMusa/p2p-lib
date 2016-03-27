@@ -19,4 +19,12 @@ $api->version('v1', function ($api) {
 		return \App\User::all();
 	});
 
+    $api->group(['middleware' => 'api.auth'], function($api){
+
+        $api->post('books/store', 'App\Api\V1\Controllers\BookController@store');
+        $api->get('books', 'App\Api\V1\Controllers\BookController@index');
+        $api->get('books/{id}', 'App\Api\V1\Controllers\BookController@show');
+
+    });
+
 });
