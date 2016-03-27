@@ -25,7 +25,7 @@ class BookController extends Controller
     {
         $currentUser = JWTAuth::parseToken()->authenticate();
 
-        return Book::All();
+        return Book::All()->toArray();
     }
 
     /**
