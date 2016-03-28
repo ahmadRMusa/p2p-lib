@@ -3,6 +3,11 @@ A p2p library
 ## use Json Web Token authorization 
 We can pass the token in two ways: passing it as a simple request parameter, or in the header with this specific item: 
 Authorization: Bearer {token_goes_here}
+
+== screenprint
+
+
+
 ## RESTFUL API GOES HERE
 ## Signup
 url:
