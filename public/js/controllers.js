@@ -58,18 +58,16 @@ bookWishlistAppControllers.controller('MainController', ['$scope', '$location', 
     $scope.create = function(){
 
         bookService.create({
-            title: $scope.currentBookTitle,
-            author_name: $scope.currentBookAuthorName,
-            pages_count: $scope.currentBookPagesCount
+            isbn: $scope.currentBookIsbn
         }, function(){
 
             $('#addBookModal').modal('toggle');
             $scope.currentBookReset();
             $scope.refresh();
 
-        }, function(){
-
-            alert('Some errors occurred while communicating with the service. Try again later.');
+        }, function(response){
+            alert(response.data.error.message);
+//            alert('Some errors occurred while communicating with the service. Try again later.');
 
         });
 
@@ -104,6 +102,58 @@ bookWishlistAppControllers.controller('MainController', ['$scope', '$location', 
         }, function(){
 
             alert('Some errors occurred while communicating with the service. Try again later.');
+
+        });
+
+    }
+
+    $scope.borrow = function(storeId){
+//        console.log(storeId);
+        bookService.borrow({
+                storeId: storeId
+        }, function(){
+                $('#loadBookModal').modal('toggle');
+
+                $scope.currentBookReset();
+                $scope.refresh();
+
+        }, function(response){
+            alert(response.data.error.message);
+//            alert('Some errors occurred while communicating with the service. Try again later.');
+
+        });
+
+    }
+
+    $scope.borrowindex = function(){
+
+        bookService.borrowindex(function(response){
+
+            $scope.stores = response;
+
+            $('#borrowBookModal').modal('toggle');
+
+        }, function(){
+
+            alert('Some errors occurred while communicating with the service. Try again later.');
+
+        });
+
+    }
+
+    $scope.returnbook=function(storeId){
+
+        bookService.returnbook({
+                storeId: storeId
+        }, function(){
+
+            $('#borrowBookModal').modal('toggle');
+            $scope.currentBookReset();
+            $scope.refresh();
+
+        }, function(response){
+            alert(response.data.error.message);
+//            alert('Some errors occurred while communicating with the service. Try again later.');
 
         });
 
@@ -148,6 +198,7 @@ bookWishlistAppControllers.controller('MainController', ['$scope', '$location', 
     }
 
     $scope.currentBookReset = function(){
+        $scope.currentBookIsbn = '';
         $scope.currentBookTitle = '';
         $scope.currentBookAuthorName = '';
         $scope.currentBookPagesCount = '';

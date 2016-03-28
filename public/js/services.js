@@ -117,9 +117,25 @@ bookWishlistAppServices.factory('bookService', ['Restangular', 'userService', fu
 
     }
 
-    function update(bookId, data, onSuccess, onError){
 
-        Restangular.one("api/books").customPUT(data, bookId).then(function(response) {
+
+//    function update(bookId, data, onSuccess, onError){
+//
+//        Restangular.one("api/books").customPUT(data, bookId).then(function(response) {
+//
+//                onSuccess(response);
+//
+//            }, function(response){
+//
+//                onError(response);
+//
+//            }
+//        );
+//
+//    }
+
+    function borrow( data,  onSuccess, onError) {
+        Restangular.all("api/borrow").post(data).then(function(response) {
 
                 onSuccess(response);
 
@@ -129,7 +145,31 @@ bookWishlistAppServices.factory('bookService', ['Restangular', 'userService', fu
 
             }
         );
+    }
 
+    function borrowindex(onSuccess, onError){
+        Restangular.all('api/borrow').getList().then(function(response){
+
+            onSuccess(response);
+
+        }, function(){
+
+            onError(response);
+
+        });
+    }
+
+    function returnbook( data,  onSuccess, onError) {
+        Restangular.all("api/return").post(data).then(function(response) {
+
+                onSuccess(response);
+
+            }, function(response){
+
+                onError(response);
+
+            }
+        );
     }
 
     function remove(bookId, onSuccess, onError){
@@ -150,7 +190,10 @@ bookWishlistAppServices.factory('bookService', ['Restangular', 'userService', fu
         getAll: getAll,
         getById: getById,
         create: create,
-        update: update,
+        borrow: borrow,
+        borrowindex: borrowindex,
+        returnbook:returnbook,
+//        update: update,
         remove: remove
     }
 

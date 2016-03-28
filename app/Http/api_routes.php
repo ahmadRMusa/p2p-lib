@@ -21,9 +21,15 @@ $api->version('v1', function ($api) {
 
     $api->group(['middleware' => 'api.auth'], function($api){
 
-        $api->post('books/store', 'App\Api\V1\Controllers\BookController@store');
+        $api->post('books', 'App\Api\V1\Controllers\BookController@store');
         $api->get('books', 'App\Api\V1\Controllers\BookController@index');
         $api->get('books/{id}', 'App\Api\V1\Controllers\BookController@show');
+
+        $api->post('borrow','App\Api\V1\Controllers\BorrowController@store');
+        $api->get('borrow' ,'App\Api\V1\Controllers\BorrowController@index');
+
+        $api->post('return','App\Api\V1\Controllers\ReturnController@store');
+
 
     });
 

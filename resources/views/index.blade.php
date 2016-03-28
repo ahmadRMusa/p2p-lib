@@ -24,6 +24,19 @@
         li {
             padding-bottom: 8px;
         }
+        .indexBookItem {
+            text-align: center;
+            font-size: 13px;
+            height: 240px;
+        }
+        .my_book_cover {
+            height: 160px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .my_book_cover img {
+            border: 1px solid #eee;
+        }
 
     </style>
 </head>
