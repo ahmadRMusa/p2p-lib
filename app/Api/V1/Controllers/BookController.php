@@ -168,51 +168,5 @@ class BookController extends Controller
         //
     }
 
-    /**
-     * Borrow a book
-     *
-     * $param int $id
-     */
-//    public function borrow(Request $request)
-//    {
-//        $currentUser = JWTAuth::parseToken()->authenticate();
-//
-//        $storeId = $request->get('storeId');
-//        $store = Store::find($storeId);
-//
-//        if(!$store){
-//            return $this->response->error('could_not_borrow_book', 500);
-//        }
-//        if($store->available !=1 || $store->borrower > 0) {
-//            return $this->response->error('book_already_borrow_to_other', 500);
-//        }
-//
-//        // Borrow this book
-//        $store->borrower = $currentUser->id;
-//        $store->available = false;
-//
-//        if($store->save()) {
-//            return $this->response->noContent();
-//        }else{
-//            return $this->response->error('cannot_borrow_book_fail', 500);
-//        }
-//
-//    }
-
-    /**
-     * All the book i borrow
-     */
-//    public function borrowindex()
-//    {
-//        return 'hi';exit;
-//        $currentUser = JWTAuth::parseToken()->authenticate();
-//
-//        $store = Store::where('borrower', $currentUser->id)->get();
-//
-//
-//        return $store;
-//
-//    }
-
 
 }

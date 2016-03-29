@@ -4,7 +4,12 @@ A p2p library
 We can pass the token in two ways: passing it as a simple request parameter, or in the header with this specific item: 
 Authorization: Bearer {token_goes_here}
 
-== screenprint
+== screen shots
+![](https://raw.githubusercontent.com/eggegg/p2p-lib/master/screenprint/pl1.jpg)
+![](https://raw.githubusercontent.com/eggegg/p2p-lib/master/screenprint/pl2.jpg)
+![](https://raw.githubusercontent.com/eggegg/p2p-lib/master/screenprint/pl3.jpg)
+![](https://raw.githubusercontent.com/eggegg/p2p-lib/master/screenprint/pl4.jpg)
+![](https://raw.githubusercontent.com/eggegg/p2p-lib/master/screenprint/pl5.jpg)
 
 
 
