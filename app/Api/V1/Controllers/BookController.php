@@ -86,7 +86,7 @@ class BookController extends Controller
         }
 
         // If a store exist
-        $store = Store::where('book_id' ,$book->id)->first();
+        $store = Store::where('book_id' ,$book->id)->where('owner', $currentUser->id)->first();
         if($store) {
             return $this->response->error('you_already_have_this_book', 500);
         }
